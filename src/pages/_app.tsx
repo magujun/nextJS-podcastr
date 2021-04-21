@@ -8,7 +8,7 @@ import styles from '../styles/app.module.scss';
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
-			<h1>Hello Muddafockers! 🥴</h1>
+			<h1>Hello World! 🥴</h1>
 			<div className={styles.wrapper}>
 			<main>
 				<Header />
