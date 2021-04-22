@@ -45,7 +45,11 @@
 	border: 1.5px dashed var(--purple-300);
 	border-radius: 1.5rem;
 
-	background: linear-gradient(143.8deg, rgba(145, 100, 250, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(
+		143.8deg,
+		rgba(145, 100, 250, 0.8) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
 }
 
 .progress {
@@ -77,7 +81,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 2.5rem;
+	margin-top: 0.5rem;
 	// gap not supported on safari@14
 	gap: 1.5rem;
 

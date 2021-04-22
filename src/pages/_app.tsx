@@ -7,18 +7,17 @@ import styles from '../styles/app.module.scss';
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<>
-			<h1>Hello World! 🥴</h1>
+		<div>
+			<h4 className={styles.helloWorld}>Hello World! 🥴</h4>
 			<div className={styles.wrapper}>
-			<main>
-				<Header />
-				<Component {...pageProps} />
-			</main>
-			<Player />
+				<main>
+					<Header />
+					<Component {...pageProps} />
+				</main>
+				<Player />
+			</div>
 		</div>
-		</>
 	);
 }
 
 export default MyApp;
-

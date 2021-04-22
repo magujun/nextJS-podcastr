@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 :root {
 	--white: #fff;
 	--gray-50: #f7f8fa;
@@ -31,8 +32,13 @@
 	}
 }
 
+html {
+	font-size: 0.75rem; //* 12px / 15px = 1.25rem */
+}
+
 body {
 	background: var(--gray-50);
+	line-height: 1.5rem; /* 16px / 21px = 1.75rem */
 }
 
 body,

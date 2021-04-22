@@ -4,3 +4,22 @@
 		flex: 1;
 	}
 }
+.helloWorld {
+	height: 2rem;
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+	animation: slideup 4s ease;
+	-webkit-animation: slideup 4s ease;
+	@keyframes slideup {
+		0% {
+			opacity: 0;
+			transform: translateY(-3rem);
+			-webkit-transform: translateY(-3rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0rem);
+			-webkit-transform: translateY(0rem);
+		}
+	}
+}
