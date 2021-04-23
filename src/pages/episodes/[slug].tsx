@@ -7,6 +7,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './episode.module.scss';
 
+// hook function useRouter import
+/*
+import { useRouter } from 'next/router';
+// */
+
 type Episode = {
 	id: string;
 	title: string;
@@ -24,6 +29,13 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+	// Fallback: true, page loading
+	/*
+	const router = useRouter();
+	if (router.isFallback) {
+		return <p>Carregando...</p>;
+	}
+	// */
 	return (
 		<div className={styles.episode}>
 			<div className={styles.thumbnailContainer}>
@@ -57,9 +69,54 @@ export default function Episode({ episode }: EpisodeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+	const { data } = await api.get('episodes', {
+		params: {
+			_limit: 2,
+			_sort: 'published_at',
+			_order: 'desc',
+		},
+	});
+
+	const paths = data.map((episode) => {
+		return {
+			params: {
+				slug: episode.id,
+			},
+		};
+	});
+
 	return {
+		paths,
+		// Layers: client(browser) - next.js - server(back-end)
+		//
+		// Client, no page generated upon build
+		/*
 		paths: [],
+		// */
+		//
+		// Next.js, single page generated upon build
+		/*
+		paths: [
+			{
+				params: {
+					slug: 'a-importancia-da-contribuicao-em-open-source',
+				},
+			},
+		],
+		// */
+		// Return (404) if no slug passed
+		/* 
+		fallback: false 
+		// */
+		//
+		// Run method getStaticProps client side (ISR)
+		/*
+		fallback: true,
+		// */
+		// Next.js (version 10-) ISR generated pages (best for SEO)
+		// /*
 		fallback: 'blocking',
+		// */
 	};
 };
 
